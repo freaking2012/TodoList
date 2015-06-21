@@ -1,0 +1,84 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>To do List</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.js"></script> 
+	<script src="js/angular.js"></script>
+	<script src="js/underscore.js"></script>
+	
+	
+	<link rel="stylesheet" href="css/todo.css">
+	<link rel="stylesheet" href="css/bootstrap.css"> 
+	
+
+</head>
+<body ng-controller="TodoCtrl">
+<br>
+<div class="container" >
+
+	<div class="well well-sm" style="text-align:center;font-weight:bold">
+		Total ToDos: <span class="badge">{{todos.length}}</span>
+	</div>
+
+
+	<div class="row" role="form">		
+		<div class="col-xs-8">
+		<input type="text" class="form-control" ng-model="TodoText" placeholder="Enter a Todo">			
+		</div>
+		<div class="col-xs-4">
+		<button class="btn btn-sm btn-success form-control" ng-click="addTodo()"><span class="glyphicon glyphicon-plus-sign"></span> Add</button>			
+		</div>
+	</div>
+	<br>
+	<div class="row" role="form">
+		<div class="col-xs-8">
+			<button class="btn btn-sm btn-danger form-control" ng-click="clearCompleted()"><span class="glyphicon glyphicon-trash"></span> Clear Completed</button>
+		</div>
+	</div>
+	
+	<br> 
+	<div class="panel panel-default">
+	<div class="panel-body">
+	<div class="row">
+		<div class="col-xs-12">  
+			<div  style="overflow: auto;">
+				<ul class="list-unstyled">
+					<li ng-repeat="todo in todos" class="task">
+					<input type="checkbox"  id="check" ng-model="todo.done" ng-change="stateChanged(todo)" >
+					<span class="done-{{todo.done}}">{{todo.text}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+
+</div>
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        
+        <div class="modal-body" id="popUpMsg">
+        
+        </div>
+        <div class="modal-footer">
+          
+          <center>
+		  <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" >Close</button>
+		 
+		  </center>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</body>
+<script type="text/javascript" src="js/todo.js"></script>
+</html>
