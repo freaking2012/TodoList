@@ -45,11 +45,14 @@
 	<div class="row">
 		<div class="col-xs-12">  
 			<div  style="overflow: auto;">
-				<ul class="list-unstyled">
-					<li ng-repeat="todo in todos" class="task">
-					<input type="checkbox"  id="check" ng-model="todo.done" ng-change="stateChanged(todo)" >
-					<span class="done-{{todo.done}}">{{todo.text}}</span>
+				<ul class="list-group">
+					<li ng-repeat="todo in todos" ng-class="{'list-group-item-info':todo.done==false,'list-group-item-warning':todo.done==true}"  class="list-group-item" id="liItem" ng-click="textClicked(todo)">
+					<span class="glyphicon" ng-class="{'glyphicon-check':todo.done==true,'glyphicon-unchecked':todo.done==false}"></span>
+					<input type="checkbox"  id="check" ng-model="todo.done" ng-change="stateChanged(todo)" hidden>
+					<span class="done-{{todo.done}}" id="liText">{{todo.text}}</span>
+					
 					</li>
+					
 				</ul>
 			</div>
 		</div>

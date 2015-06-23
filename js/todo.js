@@ -90,8 +90,35 @@ function TodoCtrl($scope)
 		//alert(itemId);
 		localStorage.setItem(chk.id,localStorage.getItem(chk.id).split('|')[0]+"|"+chk.done);
 		
+		
 	}
 	
+	$scope.textClicked = function(todo)
+	{	
+	
+	
+		//alert(itemId);
+		for(var i=0;i<$scope.todos.length;i++)
+		{
+			
+			if($scope.todos[i].id==todo.id)
+			{
+			
+				if(todo.done==true)
+				{
+					todo.done=false;
+					
+				}
+				else
+				{
+					todo.done=true;
+					
+				}
+				localStorage.setItem(todo.id,localStorage.getItem(todo.id).split('|')[0]+"|"+todo.done);
+				break;
+			}
+		}
+	}
 	
 	
 	

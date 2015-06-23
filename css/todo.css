@@ -2,3 +2,9 @@
 text-decoration:line-through;
 color:grey;
 }
+#liItem{
+cursor: pointer; cursor: hand;
+color:#003399;
+font-size:16px;
+}
+.
